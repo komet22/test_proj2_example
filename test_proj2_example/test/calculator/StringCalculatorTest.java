@@ -8,10 +8,6 @@ package calculator;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author HP
- */
 public class StringCalculatorTest {
     @Test(expected = RuntimeException.class)
     public final void whenMoreThan2NumbersAreUsedThenExceptionIsThrown() {
