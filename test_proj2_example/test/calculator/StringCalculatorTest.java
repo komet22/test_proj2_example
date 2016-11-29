@@ -60,7 +60,7 @@ public class StringCalculatorTest {
     
     @Test
     public final void whenNegativeNumbersAreUsedThenRuntimeExceptionIsThrown() {
-        RuntimeException exception = null;
+    RuntimeException exception = null;
         try {
             StringCalculator.add("3,-6,15,-18,46,33");
         } catch (RuntimeException e) {
@@ -68,5 +68,10 @@ public class StringCalculatorTest {
         }
         assertNotNull(exception);
         assertEquals("Negatives not allowed: [-6, -18]", exception.getMessage());
-        }
     }
+    
+    @Test
+    public final void whenOneOrMoreNumbersAreGreaterThan1000IsUsedThenItIsNotIncludedInSum() {
+        assertEquals(3+1000+6, StringCalculator.add("3,1000,1001,6,1234"));
+    }
+}
