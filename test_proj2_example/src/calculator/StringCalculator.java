@@ -14,9 +14,16 @@ public class StringCalculator {
         String numbersWithoutDelimiter = numbers;
         if (numbers.startsWith("//")) {
             int delimiterIndex = numbers.indexOf("//") + 2;
+            delimiter = "";
             if (numbers.startsWith("//[")) {
-                delimiterIndex ++;
-                delimiter = numbers.substring(delimiterIndex, numbers.indexOf("]"));
+                while(numbers.startsWith("[", delimiterIndex)) {
+                    delimiterIndex = numbers.indexOf("[", delimiterIndex) + 1;
+                    if (!delimiter.isEmpty()) {
+                        delimiter += "|" + numbers.substring(delimiterIndex, numbers.indexOf("]", delimiterIndex));
+                    }
+                    else delimiter = numbers.substring(delimiterIndex, numbers.indexOf("]", delimiterIndex));
+                    delimiterIndex = numbers.indexOf("]", delimiterIndex) + 1;
+                }
             }
             else delimiter = numbers.substring(delimiterIndex, delimiterIndex+1);
             numbersWithoutDelimiter = numbers.substring(numbers.indexOf("\n") + 1);

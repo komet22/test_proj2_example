@@ -82,11 +82,11 @@ public class StringCalculatorTest {
     
     @Test
     public final void canUseMultipleCustomDelimiters() {
-        assertEquals(1+2+3, StringCalculator.add("//[%][$]\n1%2%$3"));
+        assertEquals(1+2+3, StringCalculator.add("//[%][;]\n1%2;;3"));
     }
     
     @Test
     public final void canUseMultipleMultiCharacterDelimiters() {
-        assertEquals(1+2+3, StringCalculator.add("//[%%][$$]\n1%%2$$3"));
+        assertEquals(1+2+3+4, StringCalculator.add("//[%%][;;][%;]\n1%%2;;3%;4"));
     }
 }
