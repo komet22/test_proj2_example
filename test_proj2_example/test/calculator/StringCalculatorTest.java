@@ -79,4 +79,14 @@ public class StringCalculatorTest {
     public final void delimiterCanBeMultiCharacter() {
         assertEquals(1+2+3, StringCalculator.add("//[%%]\n1%%2%%3"));
     }
+    
+    @Test
+    public final void canUseMultipleCustomDelimiters() {
+        assertEquals(1+2+3, StringCalculator.add("//[%][$]\n1%2%$3"));
+    }
+    
+    @Test
+    public final void canUseMultipleMultiCharacterDelimiters() {
+        assertEquals(1+2+3, StringCalculator.add("//[%%][$$]\n1%%2$$3"));
+    }
 }
