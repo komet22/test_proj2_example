@@ -38,5 +38,5 @@ public class StringCalculator {
             throw new RuntimeException("Negatives not allowed: " + negativeNumbers.toString());
         }
         return returnValue;
-    }  
+    }
 }
